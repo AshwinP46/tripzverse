@@ -140,9 +140,12 @@ function initAutocomplete() {
                     var item = document.createElement('div');
                     item.className = 'autocomplete-item';
                     item.innerHTML = '<span class="autocomplete-icon">📍</span> ' + match.name;
-                    item.addEventListener('click', function () {
+                    // Use mousedown instead of click to prevent blur from hiding dropdown first
+                    item.addEventListener('mousedown', function (e) {
+                        e.preventDefault(); // Prevent blur from firing
                         input.value = match.name;
                         dropdown.style.display = 'none';
+                        input.focus(); // Keep focus on input
                     });
                     dropdown.appendChild(item);
                 });
@@ -152,7 +155,8 @@ function initAutocomplete() {
         });
 
         input.addEventListener('blur', function () {
-            setTimeout(function () { dropdown.style.display = 'none'; }, 200);
+            // Longer delay to allow mousedown to complete
+            setTimeout(function () { dropdown.style.display = 'none'; }, 300);
         });
 
         input.addEventListener('focus', function () {
@@ -696,9 +700,11 @@ function setupMetroAutocomplete(input, city) {
                 var item = document.createElement('div');
                 item.className = 'autocomplete-item';
                 item.innerHTML = '<span class="autocomplete-icon">🚉</span> ' + station;
-                item.addEventListener('click', function () {
+                item.addEventListener('mousedown', function (e) {
+                    e.preventDefault();
                     input.value = station;
                     dropdown.style.display = 'none';
+                    input.focus();
                 });
                 dropdown.appendChild(item);
             });
@@ -1095,9 +1101,11 @@ function setupAirportAutocomplete(inputId) {
                     '<span class="airport-city">' + airport.city + ' ' + typeIcon + '</span>' +
                     '<span class="airport-name">' + airport.name + '</span>' +
                     '</div></div>';
-                item.addEventListener('click', function () {
+                item.addEventListener('mousedown', function (e) {
+                    e.preventDefault();
                     input.value = airport.city + ' (' + airport.code + ')';
                     dropdown.style.display = 'none';
+                    input.focus();
                 });
                 dropdown.appendChild(item);
             });
@@ -1237,9 +1245,11 @@ function setupStationAutocomplete(input) {
                     '<span class="station-name">' + station.name + ' ' + typeIcon + '</span>' +
                     '<span class="station-zone">' + station.city + ' • ' + station.zone + ' Zone</span>' +
                     '</div></div>';
-                item.addEventListener('click', function () {
+                item.addEventListener('mousedown', function (e) {
+                    e.preventDefault();
                     input.value = station.name + ' (' + station.code + ')';
                     dropdown.style.display = 'none';
+                    input.focus();
                 });
                 dropdown.appendChild(item);
             });
@@ -1398,9 +1408,11 @@ function setupBusStandAutocomplete(input) {
                     '<span class="busstand-name">' + stand.name + '</span>' +
                     '<span class="busstand-district">' + stand.city + ', ' + stand.district + '</span>' +
                     '</div></div>';
-                item.addEventListener('click', function () {
+                item.addEventListener('mousedown', function (e) {
+                    e.preventDefault();
                     input.value = stand.city;
                     dropdown.style.display = 'none';
+                    input.focus();
                 });
                 dropdown.appendChild(item);
             });
