@@ -361,7 +361,7 @@ ul {
     justify-content: center;
     position: relative;
     padding: 120px var(--spacing-lg) var(--spacing-3xl);
-    overflow: hidden;
+    overflow: visible;
 }
 
 .hero-bg {
@@ -437,6 +437,9 @@ ul {
     padding: var(--spacing-md);
     box-shadow: var(--shadow-xl);
     animation: fadeInUp 0.8s ease 0.4s both;
+    overflow: visible;
+    position: relative;
+    z-index: 100;
 }
 
 .search-tabs {
@@ -472,16 +475,21 @@ ul {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: var(--spacing-md);
     align-items: end;
+    overflow: visible;
 }
 
 .search-panel.active {
     display: grid;
+    overflow: visible;
 }
 
 .search-field {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xs);
+    position: relative;
+    overflow: visible;
+    z-index: 50;
 }
 
 .search-field label {
