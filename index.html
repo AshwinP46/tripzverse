@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Tripzverse.in - Your ultimate travel companion for booking hotels, buses, trains, and discovering amazing destinations worldwide.">
+    <title>Tripzverse.in - Explore the World</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">✈️</span>
+                <span class="logo-text">Tripzverse<span class="logo-accent">.in</span></span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#flights" class="nav-link">✈️ Flights</a></li>
+                <li><a href="#hotels" class="nav-link">Hotels</a></li>
+                <li><a href="#buses" class="nav-link">Buses</a></li>
+                <li><a href="#trains" class="nav-link">Trains</a></li>
+                <li><a href="#metro" class="nav-link">🚇 Metro</a></li>
+                <li><a href="#transport" class="nav-link">Local Transport</a></li>
+                <li><a href="#destinations" class="nav-link">Destinations</a></li>
+                <li><a href="#ai-assistant" class="nav-link nav-ai">🤖 AI Guide</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-title-line">Discover Your Next</span>
+                <span class="hero-title-accent">Adventure</span>
+            </h1>
+            <p class="hero-subtitle">Explore breathtaking destinations, book seamless travel experiences, and create
+                memories that last a lifetime.</p>
+
+            <!-- Search Tabs -->
+            <div class="search-box">
+                <div class="search-tabs">
+                    <button class="search-tab active" data-tab="hotels">🏨 Hotels</button>
+                    <button class="search-tab" data-tab="buses">🚌 Buses</button>
+                    <button class="search-tab" data-tab="trains">🚂 Trains</button>
+                    <button class="search-tab" data-tab="transport">🚕 Transport</button>
+                </div>
+                <div class="search-content">
+                    <!-- Hotels Search -->
+                    <div class="search-panel active" id="hotels-search">
+                        <div class="search-field">
+                            <label>Destination</label>
+                            <input type="text" placeholder="Where are you going?">
+                        </div>
+                        <div class="search-field">
+                            <label>Check-in</label>
+                            <input type="date">
+                        </div>
+                        <div class="search-field">
+                            <label>Check-out</label>
+                            <input type="date">
+                        </div>
+                        <div class="search-field">
+                            <label>Guests</label>
+                            <select>
+                                <option>1 Guest</option>
+                                <option>2 Guests</option>
+                                <option>3 Guests</option>
+                                <option>4+ Guests</option>
+                            </select>
+                        </div>
+                        <button class="search-btn">Search Hotels</button>
+                    </div>
+                    <!-- Buses Search -->
+                    <div class="search-panel" id="buses-search">
+                        <div class="search-field">
+                            <label>From</label>
+                            <input type="text" placeholder="Departure city">
+                        </div>
+                        <div class="search-field">
+                            <label>To</label>
+                            <input type="text" placeholder="Arrival city">
+                        </div>
+                        <div class="search-field">
+                            <label>Date</label>
+                            <input type="date">
+                        </div>
+                        <div class="search-field">
+                            <label>Passengers</label>
+                            <select>
+                                <option>1 Passenger</option>
+                                <option>2 Passengers</option>
+                                <option>3 Passengers</option>
+                                <option>4+ Passengers</option>
+                            </select>
+                        </div>
+                        <button class="search-btn">Search Buses</button>
+                    </div>
+                    <!-- Trains Search -->
+                    <div class="search-panel" id="trains-search">
+                        <div class="search-field">
+                            <label>From Station</label>
+                            <input type="text" placeholder="Departure station">
+                        </div>
+                        <div class="search-field">
+                            <label>To Station</label>
+                            <input type="text" placeholder="Arrival station">
+                        </div>
+                        <div class="search-field">
+                            <label>Date</label>
+                            <input type="date">
+                        </div>
+                        <div class="search-field">
+                            <label>Class</label>
+                            <select>
+                                <option>Economy</option>
+                                <option>Business</option>
+                                <option>First Class</option>
+                            </select>
+                        </div>
+                        <button class="search-btn">Search Trains</button>
+                    </div>
+                    <!-- Transport Search -->
+                    <div class="search-panel" id="transport-search">
+                        <div class="search-field">
+                            <label>Pickup Location</label>
+                            <input type="text" placeholder="Enter pickup point">
+                        </div>
+                        <div class="search-field">
+                            <label>Drop Location</label>
+                            <input type="text" placeholder="Enter destination">
+                        </div>
+                        <div class="search-field">
+                            <label>Vehicle Type</label>
+                            <select>
+                                <option>🚕 Cab</option>
+                                <option>🛺 Auto Rickshaw</option>
+                                <option>🏍️ Bike</option>
+                                <option>🚐 Mini Van</option>
+                            </select>
+                        </div>
+                        <button class="search-btn">Find Rides</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="500">0</span>
+                    <span class="stat-label">Destinations</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="10000">0</span>
+                    <span class="stat-label">Hotels</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="50000">0</span>
+                    <span class="stat-label">Happy Travelers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="24">0</span>
+                    <span class="stat-label">Countries</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Flights Section -->
+    <section class="section flights-section" id="flights">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">✈️ Flight Booking</span>
+                <h2 class="section-title">Book Domestic & International Flights</h2>
+                <p class="section-subtitle">Find the best deals on flights across India and worldwide</p>
+            </div>
+
+            <!-- Flight Search Panel -->
+            <div class="flight-search-panel">
+                <div class="flight-type-tabs">
+                    <button class="type-tab active" data-type="oneway">One Way</button>
+                    <button class="type-tab" data-type="roundtrip">Round Trip</button>
+                    <button class="type-tab" data-type="multicity">Multi City</button>
+                </div>
+
+                <div class="search-panel" id="flightSearch">
+                    <div class="search-field">
+                        <label>From</label>
+                        <input type="text" placeholder="City or Airport" id="flightFrom" class="airport-input">
+                        <small class="field-hint">e.g., DEL, Mumbai, BLR</small>
+                    </div>
+                    <button class="swap-btn" id="swapFlights">⇄</button>
+                    <div class="search-field">
+                        <label>To</label>
+                        <input type="text" placeholder="City or Airport" id="flightTo" class="airport-input">
+                        <small class="field-hint">e.g., NYC, London, DXB</small>
+                    </div>
+                    <div class="search-field">
+                        <label>Departure</label>
+                        <input type="date" id="flightDeparture">
+                    </div>
+                    <div class="search-field return-date" id="returnDateField" style="display:none;">
+                        <label>Return</label>
+                        <input type="date" id="flightReturn">
+                    </div>
+                    <div class="search-field">
+                        <label>Travelers</label>
+                        <select id="flightTravelers">
+                            <option value="1">1 Adult</option>
+                            <option value="2">2 Adults</option>
+                            <option value="3">3 Adults</option>
+                            <option value="4">4 Adults</option>
+                            <option value="5">5+ Adults</option>
+                        </select>
+                    </div>
+                    <div class="search-field">
+                        <label>Class</label>
+                        <select id="flightClass">
+                            <option value="economy">Economy</option>
+                            <option value="premium">Premium Economy</option>
+                            <option value="business">Business</option>
+                            <option value="first">First Class</option>
+                        </select>
+                    </div>
+                    <button class="search-btn" id="searchFlights">
+                        <span>✈️</span> Search Flights
+                    </button>
+                </div>
+            </div>
+
+            <!-- Popular Routes -->
+            <div class="popular-routes">
+                <h3>🔥 Popular Flight Routes</h3>
+                <div class="routes-grid">
+                    <!-- Domestic Routes -->
+                    <div class="route-card domestic">
+                        <div class="route-badge">🇮🇳 Domestic</div>
+                        <div class="route-cities">
+                            <span class="city">Delhi (DEL)</span>
+                            <span class="arrow">✈️</span>
+                            <span class="city">Mumbai (BOM)</span>
+                        </div>
+                        <div class="route-info">
+                            <span>⏱️ 2h 10m</span>
+                            <span>Daily 50+ flights</span>
+                        </div>
+                        <div class="route-price">From ₹3,499</div>
+                        <button class="book-btn route-book" data-from="Delhi" data-to="Mumbai" data-price="3499">Book
+                            Now</button>
+                    </div>
+
+                    <div class="route-card domestic">
+                        <div class="route-badge">🇮🇳 Domestic</div>
+                        <div class="route-cities">
+                            <span class="city">Bangalore (BLR)</span>
+                            <span class="arrow">✈️</span>
+                            <span class="city">Delhi (DEL)</span>
+                        </div>
+                        <div class="route-info">
+                            <span>⏱️ 2h 45m</span>
+                            <span>Daily 40+ flights</span>
+                        </div>
+                        <div class="route-price">From ₹4,299</div>
+                        <button class="book-btn route-book" data-from="Bangalore" data-to="Delhi" data-price="4299">Book
+                            Now</button>
+                    </div>
+
+                    <div class="route-card domestic">
+                        <div class="route-badge">🇮🇳 Domestic</div>
+                        <div class="route-cities">
+                            <span class="city">Mumbai (BOM)</span>
+                            <span class="arrow">✈️</span>
+                            <span class="city">Goa (GOI)</span>
+                        </div>
+                        <div class="route-info">
+                            <span>⏱️ 1h 15m</span>
+                            <span>Daily 25+ flights</span>
+                        </div>
+                        <div class="route-price">From ₹2,899</div>
+                        <button class="book-btn route-book" data-from="Mumbai" data-to="Goa" data-price="2899">Book
+                            Now</button>
+                    </div>
+
+                    <!-- International Routes -->
+                    <div class="route-card international">
+                        <div class="route-badge intl">🌍 International</div>
+                        <div class="route-cities">
+                            <span class="city">Delhi (DEL)</span>
+                            <span class="arrow">✈️</span>
+                            <span class="city">Dubai (DXB)</span>
+                        </div>
+                        <div class="route-info">
+                            <span>⏱️ 3h 30m</span>
+                            <span>Daily 20+ flights</span>
+                        </div>
+                        <div class="route-price">From ₹12,999</div>
+                        <button class="book-btn route-book" data-from="Delhi" data-to="Dubai" data-price="12999">Book
+                            Now</button>
+                    </div>
+
+                    <div class="route-card international">
+                        <div class="route-badge intl">🌍 International</div>
+                        <div class="route-cities">
+                            <span class="city">Mumbai (BOM)</span>
+                            <span class="arrow">✈️</span>
+                            <span class="city">London (LHR)</span>
+                        </div>
+                        <div class="route-info">
+                            <span>⏱️ 9h 15m</span>
+                            <span>Daily 10+ flights</span>
+                        </div>
+                        <div class="route-price">From ₹42,500</div>
+                        <button class="book-btn route-book" data-from="Mumbai" data-to="London" data-price="42500">Book
+                            Now</button>
+                    </div>
+
+                    <div class="route-card international">
+                        <div class="route-badge intl">🌍 International</div>
+                        <div class="route-cities">
+                            <span class="city">Bangalore (BLR)</span>
+                            <span class="arrow">✈️</span>
+                            <span class="city">Singapore (SIN)</span>
+                        </div>
+                        <div class="route-info">
+                            <span>⏱️ 4h 20m</span>
+                            <span>Daily 15+ flights</span>
+                        </div>
+                        <div class="route-price">From ₹15,999</div>
+                        <button class="book-btn route-book" data-from="Bangalore" data-to="Singapore"
+                            data-price="15999">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Airlines Grid -->
+            <div class="airlines-section">
+                <h3>🛫 Top Airlines</h3>
+                <div class="airlines-grid">
+                    <!-- Indian Airlines -->
+                    <div class="airline-card">
+                        <div class="airline-logo">🇮🇳</div>
+                        <div class="airline-name">Air India</div>
+                        <div class="airline-tagline">The Maharaja Experience</div>
+                        <span class="airline-type">Full Service</span>
+                    </div>
+                    <div class="airline-card">
+                        <div class="airline-logo">💙</div>
+                        <div class="airline-name">IndiGo</div>
+                        <div class="airline-tagline">On Time, Low Fares</div>
+                        <span class="airline-type">Low Cost</span>
+                    </div>
+                    <div class="airline-card">
+                        <div class="airline-logo">🔴</div>
+                        <div class="airline-name">SpiceJet</div>
+                        <div class="airline-tagline">Red Hot Spicy Fresh</div>
+                        <span class="airline-type">Low Cost</span>
+                    </div>
+                    <div class="airline-card">
+                        <div class="airline-logo">⭐</div>
+                        <div class="airline-name">Vistara</div>
+                        <div class="airline-tagline">Fly The New Feeling</div>
+                        <span class="airline-type">Full Service</span>
+                    </div>
+                    <div class="airline-card">
+                        <div class="airline-logo">🌟</div>
+                        <div class="airline-name">Akasa Air</div>
+                        <div class="airline-tagline">It's Your Sky</div>
+                        <span class="airline-type">Low Cost</span>
+                    </div>
+                    <!-- International Airlines -->
+                    <div class="airline-card">
+                        <div class="airline-logo">🇦🇪</div>
+                        <div class="airline-name">Emirates</div>
+                        <div class="airline-tagline">Fly Better</div>
+                        <span class="airline-type intl">International</span>
+                    </div>
+                    <div class="airline-card">
+                        <div class="airline-logo">🇸🇬</div>
+                        <div class="airline-name">Singapore Airlines</div>
+                        <div class="airline-tagline">A Great Way to Fly</div>
+                        <span class="airline-type intl">International</span>
+                    </div>
+                    <div class="airline-card">
+                        <div class="airline-logo">🇶🇦</div>
+                        <div class="airline-name">Qatar Airways</div>
+                        <div class="airline-tagline">Going Places Together</div>
+                        <span class="airline-type intl">International</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flight Features -->
+            <div class="flight-features">
+                <div class="flight-feature">
+                    <span class="feature-icon">💰</span>
+                    <h4>Lowest Fares</h4>
+                    <p>Best price guarantee on all flights</p>
+                </div>
+                <div class="flight-feature">
+                    <span class="feature-icon">🔒</span>
+                    <h4>Secure Booking</h4>
+                    <p>100% safe payment gateway</p>
+                </div>
+                <div class="flight-feature">
+                    <span class="feature-icon">📧</span>
+                    <h4>Instant Confirmation</h4>
+                    <p>E-ticket sent to your email</p>
+                </div>
+                <div class="flight-feature">
+                    <span class="feature-icon">🔄</span>
+                    <h4>Easy Cancellation</h4>
+                    <p>Free cancellation on select flights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hotels Section -->
+    <section class="section hotels-section" id="hotels">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🏨 Accommodations</span>
+                <h2 class="section-title">Featured Hotels & Stays</h2>
+                <p class="section-subtitle">From luxury resorts to cozy boutique hotels, find your perfect stay</p>
+            </div>
+            <div class="hotel-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="luxury">Luxury</button>
+                <button class="filter-btn" data-filter="boutique">Boutique</button>
+                <button class="filter-btn" data-filter="resort">Resort</button>
+                <button class="filter-btn" data-filter="budget">Budget-Friendly</button>
+            </div>
+            <div class="hotels-grid">
+                <!-- Hotel Card 1 -->
+                <div class="hotel-card" data-category="luxury">
+                    <div class="hotel-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop"
+                            alt="The Grand Palace Hotel">
+                        <div class="hotel-badge">Featured</div>
+                        <button class="hotel-wishlist">❤️</button>
+                    </div>
+                    <div class="hotel-info">
+                        <div class="hotel-location">📍 Paris, France</div>
+                        <h3 class="hotel-name">The Grand Palace Hotel</h3>
+                        <div class="hotel-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">5.0 (2,847 reviews)</span>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span>🏊 Pool</span>
+                            <span>🍽️ Restaurant</span>
+                            <span>💆 Spa</span>
+                            <span>📶 WiFi</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="hotel-price">
+                                <span class="price">$450</span>
+                                <span class="per-night">/ night</span>
+                            </div>
+                            <button class="book-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hotel Card 2 -->
+                <div class="hotel-card" data-category="resort">
+                    <div class="hotel-image">
+                        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&h=300&fit=crop"
+                            alt="Maldives Paradise Resort">
+                        <div class="hotel-badge hot">Hot Deal</div>
+                        <button class="hotel-wishlist">❤️</button>
+                    </div>
+                    <div class="hotel-info">
+                        <div class="hotel-location">📍 Maldives</div>
+                        <h3 class="hotel-name">Paradise Island Resort</h3>
+                        <div class="hotel-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">4.9 (1,923 reviews)</span>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span>🏊 Pool</span>
+                            <span>🤿 Diving</span>
+                            <span>🍽️ Restaurant</span>
+                            <span>🌊 Beach</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="hotel-price">
+                                <span class="price">$680</span>
+                                <span class="per-night">/ night</span>
+                            </div>
+                            <button class="book-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hotel Card 3 -->
+                <div class="hotel-card" data-category="boutique">
+                    <div class="hotel-image">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=300&fit=crop"
+                            alt="Tokyo Zen Hotel">
+                        <button class="hotel-wishlist">❤️</button>
+                    </div>
+                    <div class="hotel-info">
+                        <div class="hotel-location">📍 Tokyo, Japan</div>
+                        <h3 class="hotel-name">Sakura Zen Boutique</h3>
+                        <div class="hotel-rating">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="rating-text">4.7 (1,456 reviews)</span>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span>🍵 Tea Room</span>
+                            <span>🧘 Yoga</span>
+                            <span>🌸 Garden</span>
+                            <span>📶 WiFi</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="hotel-price">
+                                <span class="price">$220</span>
+                                <span class="per-night">/ night</span>
+                            </div>
+                            <button class="book-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hotel Card 4 -->
+                <div class="hotel-card" data-category="luxury">
+                    <div class="hotel-image">
+                        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=300&fit=crop"
+                            alt="Dubai Skyline Hotel">
+                        <div class="hotel-badge">Premium</div>
+                        <button class="hotel-wishlist">❤️</button>
+                    </div>
+                    <div class="hotel-info">
+                        <div class="hotel-location">📍 Dubai, UAE</div>
+                        <h3 class="hotel-name">Burj Vista Luxury</h3>
+                        <div class="hotel-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">4.9 (3,102 reviews)</span>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span>🏊 Infinity Pool</span>
+                            <span>🍽️ Fine Dining</span>
+                            <span>💆 Spa</span>
+                            <span>🎰 Casino</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="hotel-price">
+                                <span class="price">$890</span>
+                                <span class="per-night">/ night</span>
+                            </div>
+                            <button class="book-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hotel Card 5 -->
+                <div class="hotel-card" data-category="budget">
+                    <div class="hotel-image">
+                        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=400&h=300&fit=crop"
+                            alt="Bali Retreat">
+                        <div class="hotel-badge value">Best Value</div>
+                        <button class="hotel-wishlist">❤️</button>
+                    </div>
+                    <div class="hotel-info">
+                        <div class="hotel-location">📍 Bali, Indonesia</div>
+                        <h3 class="hotel-name">Ubud Jungle Retreat</h3>
+                        <div class="hotel-rating">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="rating-text">4.6 (987 reviews)</span>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span>🌴 Garden</span>
+                            <span>🧘 Yoga</span>
+                            <span>🍽️ Organic Food</span>
+                            <span>🏊 Pool</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="hotel-price">
+                                <span class="price">$85</span>
+                                <span class="per-night">/ night</span>
+                            </div>
+                            <button class="book-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hotel Card 6 -->
+                <div class="hotel-card" data-category="resort">
+                    <div class="hotel-image">
+                        <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=400&h=300&fit=crop"
+                            alt="Swiss Alps Resort">
+                        <button class="hotel-wishlist">❤️</button>
+                    </div>
+                    <div class="hotel-info">
+                        <div class="hotel-location">📍 Swiss Alps, Switzerland</div>
+                        <h3 class="hotel-name">Alpine Serenity Resort</h3>
+                        <div class="hotel-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">4.8 (2,341 reviews)</span>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span>⛷️ Ski Access</span>
+                            <span>♨️ Hot Tub</span>
+                            <span>🍽️ Restaurant</span>
+                            <span>🎿 Equipment</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="hotel-price">
+                                <span class="price">$520</span>
+                                <span class="per-night">/ night</span>
+                            </div>
+                            <button class="book-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <button class="cta-btn">View All Hotels →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buses Section -->
+    <section class="section buses-section" id="buses">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🚌 Bus Travel</span>
+                <h2 class="section-title">Book Bus Tickets</h2>
+                <p class="section-subtitle">Comfortable and affordable bus travel across cities and countries</p>
+            </div>
+            <div class="buses-grid">
+                <!-- Bus Route Card 1 -->
+                <div class="bus-card">
+                    <div class="bus-header">
+                        <div class="bus-operator">
+                            <div class="operator-logo">🚌</div>
+                            <div class="operator-info">
+                                <h4>Luxury Travels</h4>
+                                <span class="bus-type">Volvo AC Sleeper</span>
+                            </div>
+                        </div>
+                        <div class="bus-rating">⭐ 4.8</div>
+                    </div>
+                    <div class="bus-route">
+                        <div class="route-point">
+                            <span class="time">06:00 AM</span>
+                            <span class="city">New Delhi</span>
+                        </div>
+                        <div class="route-line">
+                            <span class="duration">12h 30m</span>
+                        </div>
+                        <div class="route-point">
+                            <span class="time">06:30 PM</span>
+                            <span class="city">Mumbai</span>
+                        </div>
+                    </div>
+                    <div class="bus-amenities">
+                        <span title="Air Conditioning">❄️ AC</span>
+                        <span title="WiFi">📶 WiFi</span>
+                        <span title="Charging Point">🔌 Charging</span>
+                        <span title="Blanket">🛏️ Blanket</span>
+                        <span title="Water Bottle">💧 Water</span>
+                    </div>
+                    <div class="bus-footer">
+                        <div class="bus-seats">
+                            <span class="seats-available">23 seats available</span>
+                        </div>
+                        <div class="bus-price">
+                            <span class="price">$45</span>
+                            <button class="book-btn">Select Seats</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bus Route Card 2 -->
+                <div class="bus-card">
+                    <div class="bus-header">
+                        <div class="bus-operator">
+                            <div class="operator-logo">🚍</div>
+                            <div class="operator-info">
+                                <h4>EuroLines Premium</h4>
+                                <span class="bus-type">Double Decker</span>
+                            </div>
+                        </div>
+                        <div class="bus-rating">⭐ 4.7</div>
+                    </div>
+                    <div class="bus-route">
+                        <div class="route-point">
+                            <span class="time">08:00 AM</span>
+                            <span class="city">Paris</span>
+                        </div>
+                        <div class="route-line">
+                            <span class="duration">7h 15m</span>
+                        </div>
+                        <div class="route-point">
+                            <span class="time">03:15 PM</span>
+                            <span class="city">Amsterdam</span>
+                        </div>
+                    </div>
+                    <div class="bus-amenities">
+                        <span title="Air Conditioning">❄️ AC</span>
+                        <span title="WiFi">📶 WiFi</span>
+                        <span title="Entertainment">🎬 Entertainment</span>
+                        <span title="Restroom">🚻 Restroom</span>
+                    </div>
+                    <div class="bus-footer">
+                        <div class="bus-seats">
+                            <span class="seats-available">45 seats available</span>
+                        </div>
+                        <div class="bus-price">
+                            <span class="price">$38</span>
+                            <button class="book-btn">Select Seats</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bus Route Card 3 -->
+                <div class="bus-card">
+                    <div class="bus-header">
+                        <div class="bus-operator">
+                            <div class="operator-logo">🚐</div>
+                            <div class="operator-info">
+                                <h4>Greyhound Express</h4>
+                                <span class="bus-type">Executive Coach</span>
+                            </div>
+                        </div>
+                        <div class="bus-rating">⭐ 4.6</div>
+                    </div>
+                    <div class="bus-route">
+                        <div class="route-point">
+                            <span class="time">07:30 AM</span>
+                            <span class="city">New York</span>
+                        </div>
+                        <div class="route-line">
+                            <span class="duration">4h 45m</span>
+                        </div>
+                        <div class="route-point">
+                            <span class="time">12:15 PM</span>
+                            <span class="city">Washington DC</span>
+                        </div>
+                    </div>
+                    <div class="bus-amenities">
+                        <span title="Air Conditioning">❄️ AC</span>
+                        <span title="WiFi">📶 WiFi</span>
+                        <span title="Power Outlets">🔌 Power</span>
+                        <span title="Extra Legroom">🦵 Legroom</span>
+                    </div>
+                    <div class="bus-footer">
+                        <div class="bus-seats">
+                            <span class="seats-available">18 seats available</span>
+                        </div>
+                        <div class="bus-price">
+                            <span class="price">$55</span>
+                            <button class="book-btn">Select Seats</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popular-routes">
+                <h3>Popular Routes</h3>
+                <div class="routes-list">
+                    <div class="route-chip">London → Edinburgh</div>
+                    <div class="route-chip">Bangkok → Pattaya</div>
+                    <div class="route-chip">Sydney → Melbourne</div>
+                    <div class="route-chip">Rome → Florence</div>
+                    <div class="route-chip">Toronto → Montreal</div>
+                    <div class="route-chip">Berlin → Prague</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trains Section -->
+    <section class="section trains-section" id="trains">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🚂 Rail Travel</span>
+                <h2 class="section-title">Train Bookings</h2>
+                <p class="section-subtitle">Experience scenic journeys on the world's most iconic train routes</p>
+            </div>
+            <div class="trains-grid">
+                <!-- Train Card 1 -->
+                <div class="train-card">
+                    <div class="train-image">
+                        <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&h=200&fit=crop"
+                            alt="Bullet Train">
+                        <div class="train-badge">High Speed</div>
+                    </div>
+                    <div class="train-info">
+                        <div class="train-name">
+                            <h3>Shinkansen Nozomi</h3>
+                            <span class="train-number">N700S</span>
+                        </div>
+                        <div class="train-route">
+                            <div class="station">
+                                <span class="station-time">09:30</span>
+                                <span class="station-name">Tokyo Station</span>
+                            </div>
+                            <div class="route-arrow">
+                                <span class="travel-time">2h 15m</span>
+                                <div class="arrow-line"></div>
+                            </div>
+                            <div class="station">
+                                <span class="station-time">11:45</span>
+                                <span class="station-name">Osaka Station</span>
+                            </div>
+                        </div>
+                        <div class="train-classes">
+                            <div class="class-option">
+                                <span class="class-name">Economy</span>
+                                <span class="class-price">$120</span>
+                            </div>
+                            <div class="class-option">
+                                <span class="class-name">Business</span>
+                                <span class="class-price">$180</span>
+                            </div>
+                            <div class="class-option premium">
+                                <span class="class-name">First Class</span>
+                                <span class="class-price">$280</span>
+                            </div>
+                        </div>
+                        <button class="book-btn full-width">Book Tickets</button>
+                    </div>
+                </div>
+                <!-- Train Card 2 -->
+                <div class="train-card">
+                    <div class="train-image">
+                        <img src="https://images.unsplash.com/photo-1532105956626-9569c03602f6?w=400&h=200&fit=crop"
+                            alt="European Train">
+                        <div class="train-badge scenic">Scenic Route</div>
+                    </div>
+                    <div class="train-info">
+                        <div class="train-name">
+                            <h3>Glacier Express</h3>
+                            <span class="train-number">Panoramic Coach</span>
+                        </div>
+                        <div class="train-route">
+                            <div class="station">
+                                <span class="station-time">08:00</span>
+                                <span class="station-name">Zermatt</span>
+                            </div>
+                            <div class="route-arrow">
+                                <span class="travel-time">8h 00m</span>
+                                <div class="arrow-line"></div>
+                            </div>
+                            <div class="station">
+                                <span class="station-time">16:00</span>
+                                <span class="station-name">St. Moritz</span>
+                            </div>
+                        </div>
+                        <div class="train-classes">
+                            <div class="class-option">
+                                <span class="class-name">Second Class</span>
+                                <span class="class-price">$150</span>
+                            </div>
+                            <div class="class-option premium">
+                                <span class="class-name">Excellence Class</span>
+                                <span class="class-price">$450</span>
+                            </div>
+                        </div>
+                        <button class="book-btn full-width">Book Tickets</button>
+                    </div>
+                </div>
+                <!-- Train Card 3 -->
+                <div class="train-card">
+                    <div class="train-image">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=200&fit=crop"
+                            alt="Eurostar">
+                        <div class="train-badge">International</div>
+                    </div>
+                    <div class="train-info">
+                        <div class="train-name">
+                            <h3>Eurostar</h3>
+                            <span class="train-number">e320</span>
+                        </div>
+                        <div class="train-route">
+                            <div class="station">
+                                <span class="station-time">07:00</span>
+                                <span class="station-name">London St Pancras</span>
+                            </div>
+                            <div class="route-arrow">
+                                <span class="travel-time">2h 20m</span>
+                                <div class="arrow-line"></div>
+                            </div>
+                            <div class="station">
+                                <span class="station-time">10:20</span>
+                                <span class="station-name">Paris Gare du Nord</span>
+                            </div>
+                        </div>
+                        <div class="train-classes">
+                            <div class="class-option">
+                                <span class="class-name">Standard</span>
+                                <span class="class-price">€89</span>
+                            </div>
+                            <div class="class-option">
+                                <span class="class-name">Standard Premier</span>
+                                <span class="class-price">€145</span>
+                            </div>
+                            <div class="class-option premium">
+                                <span class="class-name">Business Premier</span>
+                                <span class="class-price">€295</span>
+                            </div>
+                        </div>
+                        <button class="book-btn full-width">Book Tickets</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Transportation Section -->
+    <section class="section transport-section" id="transport">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🚕 Local Transport</span>
+                <h2 class="section-title">Get Around Easily</h2>
+                <p class="section-subtitle">Book cabs, autos, bikes, and more for hassle-free local travel</p>
+            </div>
+            <div class="transport-options">
+                <!-- Cab Option -->
+                <div class="transport-card">
+                    <div class="transport-icon">🚕</div>
+                    <h3>Cabs</h3>
+                    <p>Comfortable AC cabs for city travel</p>
+                    <div class="transport-types">
+                        <div class="type-option">
+                            <span class="type-icon">🚗</span>
+                            <span class="type-name">Mini</span>
+                            <span class="type-price">$5/km</span>
+                        </div>
+                        <div class="type-option">
+                            <span class="type-icon">🚙</span>
+                            <span class="type-name">Sedan</span>
+                            <span class="type-price">$8/km</span>
+                        </div>
+                        <div class="type-option premium">
+                            <span class="type-icon">🚘</span>
+                            <span class="type-name">Premium</span>
+                            <span class="type-price">$12/km</span>
+                        </div>
+                        <div class="type-option">
+                            <span class="type-icon">🚐</span>
+                            <span class="type-name">SUV</span>
+                            <span class="type-price">$15/km</span>
+                        </div>
+                    </div>
+                    <button class="book-btn">Book a Cab</button>
+                </div>
+                <!-- Auto Rickshaw Option -->
+                <div class="transport-card">
+                    <div class="transport-icon">🛺</div>
+                    <h3>Auto Rickshaw</h3>
+                    <p>Quick rides for short distances</p>
+                    <div class="transport-types">
+                        <div class="type-option">
+                            <span class="type-icon">🛺</span>
+                            <span class="type-name">Standard</span>
+                            <span class="type-price">$2/km</span>
+                        </div>
+                        <div class="type-option">
+                            <span class="type-icon">🛺</span>
+                            <span class="type-name">Shared</span>
+                            <span class="type-price">$1/km</span>
+                        </div>
+                    </div>
+                    <button class="book-btn">Book Auto</button>
+                </div>
+                <!-- Bike Option -->
+                <div class="transport-card">
+                    <div class="transport-icon">🏍️</div>
+                    <h3>Bike Taxi</h3>
+                    <p>Beat the traffic on two wheels</p>
+                    <div class="transport-types">
+                        <div class="type-option">
+                            <span class="type-icon">🏍️</span>
+                            <span class="type-name">Bike</span>
+                            <span class="type-price">$1.5/km</span>
+                        </div>
+                        <div class="type-option">
+                            <span class="type-icon">🛵</span>
+                            <span class="type-name">Scooter</span>
+                            <span class="type-price">$1.8/km</span>
+                        </div>
+                    </div>
+                    <button class="book-btn">Book Bike</button>
+                </div>
+                <!-- Rental Option -->
+                <div class="transport-card">
+                    <div class="transport-icon">🚙</div>
+                    <h3>Self Drive</h3>
+                    <p>Rent a car and drive yourself</p>
+                    <div class="transport-types">
+                        <div class="type-option">
+                            <span class="type-icon">🚗</span>
+                            <span class="type-name">Hatchback</span>
+                            <span class="type-price">$40/day</span>
+                        </div>
+                        <div class="type-option">
+                            <span class="type-icon">🚙</span>
+                            <span class="type-name">Sedan</span>
+                            <span class="type-price">$60/day</span>
+                        </div>
+                        <div class="type-option premium">
+                            <span class="type-icon">🚐</span>
+                            <span class="type-name">SUV</span>
+                            <span class="type-price">$90/day</span>
+                        </div>
+                    </div>
+                    <button class="book-btn">Rent a Car</button>
+                </div>
+            </div>
+            <!-- Fare Calculator -->
+            <div class="fare-calculator">
+                <h3>💰 Fare Estimator</h3>
+                <div class="calculator-form">
+                    <div class="calc-field">
+                        <label>Distance (km)</label>
+                        <input type="number" id="distance" placeholder="Enter distance" value="10">
+                    </div>
+                    <div class="calc-field">
+                        <label>Vehicle Type</label>
+                        <select id="vehicleType">
+                            <option value="1.5">🏍️ Bike - $1.5/km</option>
+                            <option value="2">🛺 Auto - $2/km</option>
+                            <option value="5">🚗 Mini Cab - $5/km</option>
+                            <option value="8" selected>🚙 Sedan - $8/km</option>
+                            <option value="12">🚘 Premium - $12/km</option>
+                            <option value="15">🚐 SUV - $15/km</option>
+                        </select>
+                    </div>
+                    <div class="calc-result">
+                        <span class="result-label">Estimated Fare</span>
+                        <span class="result-value" id="fareResult">$80</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Indian Metro Rail Section -->
+    <section class="section metro-section" id="metro">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🚇 Metro Rail</span>
+                <h2 class="section-title">Indian Metro Booking</h2>
+                <p class="section-subtitle">Book tickets for metro trains across India's major cities</p>
+            </div>
+
+            <!-- Metro Search Panel -->
+            <div class="metro-search-panel">
+                <div class="search-panel" id="metroSearch">
+                    <div class="search-field">
+                        <label>Select Metro</label>
+                        <select class="metro-select" id="metroCity">
+                            <option value="">Choose Metro City</option>
+                            <option value="delhi">Delhi Metro (DMRC)</option>
+                            <option value="mumbai">Mumbai Metro</option>
+                            <option value="bangalore">Namma Metro (Bangalore)</option>
+                            <option value="chennai">Chennai Metro Rail</option>
+                            <option value="kolkata">Kolkata Metro</option>
+                            <option value="hyderabad">Hyderabad Metro (L&T)</option>
+                            <option value="lucknow">Lucknow Metro</option>
+                            <option value="kochi">Kochi Metro</option>
+                            <option value="jaipur">Jaipur Metro</option>
+                            <option value="ahmedabad">Ahmedabad Metro (Gujarat Metro)</option>
+                            <option value="pune">Pune Metro (Maha Metro)</option>
+                            <option value="nagpur">Nagpur Metro (Maha Metro)</option>
+                        </select>
+                    </div>
+                    <div class="search-field">
+                        <label>From Station</label>
+                        <input type="text" placeholder="Enter source station" id="metroFrom">
+                    </div>
+                    <div class="search-field">
+                        <label>To Station</label>
+                        <input type="text" placeholder="Enter destination station" id="metroTo">
+                    </div>
+                    <div class="search-field">
+                        <label>Travel Date</label>
+                        <input type="date" id="metroDate">
+                    </div>
+                    <button class="search-btn" id="searchMetro">
+                        <span>🎫</span> Get Tickets
+                    </button>
+                </div>
+            </div>
+
+            <!-- Metro Cards Grid -->
+            <div class="metro-grid">
+                <!-- Delhi Metro -->
+                <div class="metro-card" data-metro="delhi">
+                    <div class="metro-image">
+                        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=400&h=250&fit=crop"
+                            alt="Delhi Metro">
+                        <div class="metro-badge">🇮🇳 DMRC</div>
+                    </div>
+                    <div class="metro-info">
+                        <h3>Delhi Metro</h3>
+                        <p class="metro-tagline">दिल्ली मेट्रो रेल निगम</p>
+                        <div class="metro-stats">
+                            <span>🚉 286 Stations</span>
+                            <span>📏 391 km</span>
+                            <span>🎫 ₹10-60</span>
+                        </div>
+                        <div class="metro-lines">
+                            <span class="line red">Red</span>
+                            <span class="line yellow">Yellow</span>
+                            <span class="line blue">Blue</span>
+                            <span class="line green">Green</span>
+                            <span class="line violet">Violet</span>
+                            <span class="line magenta">Magenta</span>
+                        </div>
+                        <button class="book-btn metro-book" data-metro="Delhi Metro">Book Ticket</button>
+                    </div>
+                </div>
+
+                <!-- Mumbai Metro -->
+                <div class="metro-card" data-metro="mumbai">
+                    <div class="metro-image">
+                        <img src="https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?w=400&h=250&fit=crop"
+                            alt="Mumbai Metro">
+                        <div class="metro-badge">🇮🇳 MMRC</div>
+                    </div>
+                    <div class="metro-info">
+                        <h3>Mumbai Metro</h3>
+                        <p class="metro-tagline">मुंबई मेट्रो रेल</p>
+                        <div class="metro-stats">
+                            <span>🚉 120+ Stations</span>
+                            <span>📏 337 km</span>
+                            <span>🎫 ₹10-80</span>
+                        </div>
+                        <div class="metro-lines">
+                            <span class="line blue">Line 1</span>
+                            <span class="line yellow">Line 2A</span>
+                            <span class="line aqua">Line 3</span>
+                        </div>
+                        <button class="book-btn metro-book" data-metro="Mumbai Metro">Book Ticket</button>
+                    </div>
+                </div>
+
+                <!-- Namma Metro (Bangalore) -->
+                <div class="metro-card" data-metro="bangalore">
+                    <div class="metro-image">
+                        <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=400&h=250&fit=crop"
+                            alt="Namma Metro">
+                        <div class="metro-badge">🇮🇳 BMRCL</div>
+                    </div>
+                    <div class="metro-info">
+                        <h3>Namma Metro</h3>
+                        <p class="metro-tagline">ನಮ್ಮ ಮೆಟ್ರೋ (Bangalore)</p>
+                        <div class="metro-stats">
+                            <span>🚉 64 Stations</span>
+                            <span>📏 73 km</span>
+                            <span>🎫 ₹10-60</span>
+                        </div>
+                        <div class="metro-lines">
+                            <span class="line purple">Purple</span>
+                            <span class="line green">Green</span>
+                            <span class="line yellow">Yellow</span>
+                        </div>
+                        <button class="book-btn metro-book" data-metro="Namma Metro">Book Ticket</button>
+                    </div>
+                </div>
+
+                <!-- Chennai Metro -->
+                <div class="metro-card" data-metro="chennai">
+                    <div class="metro-image">
+                        <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=400&h=250&fit=crop"
+                            alt="Chennai Metro">
+                        <div class="metro-badge">🇮🇳 CMRL</div>
+                    </div>
+                    <div class="metro-info">
+                        <h3>Chennai Metro Rail</h3>
+                        <p class="metro-tagline">சென்னை மெட்ரோ ரயில்</p>
+                        <div class="metro-stats">
+                            <span>🚉 52 Stations</span>
+                            <span>📏 54 km</span>
+                            <span>🎫 ₹10-70</span>
+                        </div>
+                        <div class="metro-lines">
+                            <span class="line blue">Blue</span>
+                            <span class="line green">Green</span>
+                        </div>
+                        <button class="book-btn metro-book" data-metro="Chennai Metro">Book Ticket</button>
+                    </div>
+                </div>
+
+                <!-- Kolkata Metro -->
+                <div class="metro-card" data-metro="kolkata">
+                    <div class="metro-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop"
+                            alt="Kolkata Metro">
+                        <div class="metro-badge">🇮🇳 KMRC</div>
+                    </div>
+                    <div class="metro-info">
+                        <h3>Kolkata Metro</h3>
+                        <p class="metro-tagline">কলকাতা মেট্রো (India's First)</p>
+                        <div class="metro-stats">
+                            <span>🚉 44 Stations</span>
+                            <span>📏 48 km</span>
+                            <span>🎫 ₹5-25</span>
+                        </div>
+                        <div class="metro-lines">
+                            <span class="line blue">Blue</span>
+                            <span class="line green">Green</span>
+                            <span class="line purple">Purple</span>
+                        </div>
+                        <button class="book-btn metro-book" data-metro="Kolkata Metro">Book Ticket</button>
+                    </div>
+                </div>
+
+                <!-- Hyderabad Metro -->
+                <div class="metro-card" data-metro="hyderabad">
+                    <div class="metro-image">
+                        <img src="https://images.unsplash.com/photo-1595658658481-d53d3f999875?w=400&h=250&fit=crop"
+                            alt="Hyderabad Metro">
+                        <div class="metro-badge">🇮🇳 L&T</div>
+                    </div>
+                    <div class="metro-info">
+                        <h3>Hyderabad Metro</h3>
+                        <p class="metro-tagline">హైదరాబాద్ మెట్రో</p>
+                        <div class="metro-stats">
+                            <span>🚉 57 Stations</span>
+                            <span>📏 69 km</span>
+                            <span>🎫 ₹10-60</span>
+                        </div>
+                        <div class="metro-lines">
+                            <span class="line red">Red</span>
+                            <span class="line blue">Blue</span>
+                            <span class="line green">Green</span>
+                        </div>
+                        <button class="book-btn metro-book" data-metro="Hyderabad Metro">Book Ticket</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metro Features -->
+            <div class="metro-features">
+                <div class="metro-feature">
+                    <span class="feature-icon">🎫</span>
+                    <h4>QR Tickets</h4>
+                    <p>Digital tickets on your phone</p>
+                </div>
+                <div class="metro-feature">
+                    <span class="feature-icon">💳</span>
+                    <h4>Smart Cards</h4>
+                    <p>NCMC & Metro cards accepted</p>
+                </div>
+                <div class="metro-feature">
+                    <span class="feature-icon">🔄</span>
+                    <h4>Return Journey</h4>
+                    <p>Book round trip tickets</p>
+                </div>
+                <div class="metro-feature">
+                    <span class="feature-icon">👥</span>
+                    <h4>Group Booking</h4>
+                    <p>Book for multiple passengers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Famous Destinations Section -->
+    <section class="section destinations-section" id="destinations">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🌍 Explore</span>
+                <h2 class="section-title">Famous Destinations</h2>
+                <p class="section-subtitle">Discover breathtaking places from every corner of the world</p>
+            </div>
+            <!-- Continent Filters -->
+            <div class="destination-filters">
+                <button class="dest-filter active" data-continent="all">🌍 All</button>
+                <button class="dest-filter" data-continent="asia">🏯 Asia</button>
+                <button class="dest-filter" data-continent="europe">🏰 Europe</button>
+                <button class="dest-filter" data-continent="americas">🗽 Americas</button>
+                <button class="dest-filter" data-continent="africa">🦁 Africa</button>
+                <button class="dest-filter" data-continent="oceania">🦘 Oceania</button>
+            </div>
+            <!-- Destinations Grid -->
+            <div class="destinations-grid">
+                <!-- Asia Destinations -->
+                <div class="destination-card" data-continent="asia">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&h=300&fit=crop"
+                            alt="Kyoto, Japan">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇯🇵</span>
+                            <span>Japan</span>
+                        </div>
+                        <h3>Kyoto</h3>
+                        <p>Ancient temples, traditional gardens, and geisha culture</p>
+                        <div class="dest-meta">
+                            <span>🌸 Best: Mar-May</span>
+                            <span>💰 From $150/day</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-continent="asia">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?w=400&h=300&fit=crop"
+                            alt="Taj Mahal, India">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇮🇳</span>
+                            <span>India</span>
+                        </div>
+                        <h3>Agra - Taj Mahal</h3>
+                        <p>The iconic monument of love and Mughal architecture</p>
+                        <div class="dest-meta">
+                            <span>🌅 Best: Oct-Mar</span>
+                            <span>💰 From $50/day</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-continent="asia">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=400&h=300&fit=crop"
+                            alt="Bangkok, Thailand">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇹🇭</span>
+                            <span>Thailand</span>
+                        </div>
+                        <h3>Bangkok</h3>
+                        <p>Vibrant street life, ornate temples, and amazing food</p>
+                        <div class="dest-meta">
+                            <span>☀️ Best: Nov-Feb</span>
+                            <span>💰 From $40/day</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Europe Destinations -->
+                <div class="destination-card" data-continent="europe">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400&h=300&fit=crop"
+                            alt="Paris, France">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇫🇷</span>
+                            <span>France</span>
+                        </div>
+                        <h3>Paris</h3>
+                        <p>The city of love, art, fashion, and gastronomy</p>
+                        <div class="dest-meta">
+                            <span>🌷 Best: Apr-Jun</span>
+                            <span>💰 From $200/day</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-continent="europe">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=400&h=300&fit=crop"
+                            alt="Santorini, Greece">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇬🇷</span>
+                            <span>Greece</span>
+                        </div>
+                        <h3>Santorini</h3>
+                        <p>Stunning sunsets, white-washed buildings, and blue domes</p>
+                        <div class="dest-meta">
+                            <span>🌅 Best: May-Oct</span>
+                            <span>💰 From $180/day</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-continent="europe">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=400&h=300&fit=crop"
+                            alt="Amalfi Coast, Italy">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇮🇹</span>
+                            <span>Italy</span>
+                        </div>
+                        <h3>Amalfi Coast</h3>
+                        <p>Dramatic cliffs, pastel villages, and Mediterranean charm</p>
+                        <div class="dest-meta">
+                            <span>☀️ Best: May-Sep</span>
+                            <span>💰 From $220/day</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Americas Destinations -->
+                <div class="destination-card" data-continent="americas">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=400&h=300&fit=crop"
+                            alt="New York, USA">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇺🇸</span>
+                            <span>USA</span>
+                        </div>
+                        <h3>New York City</h3>
+                        <p>The city that never sleeps - Broadway, Central Park, Times Square</p>
+                        <div class="dest-meta">
+                            <span>🍂 Best: Sep-Nov</span>
+                            <span>💰 From $250/day</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-continent="americas">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=400&h=300&fit=crop"
+                            alt="Machu Picchu, Peru">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇵🇪</span>
+                            <span>Peru</span>
+                        </div>
+                        <h3>Machu Picchu</h3>
+                        <p>Ancient Incan citadel perched high in the Andes mountains</p>
+                        <div class="dest-meta">
+                            <span>🌄 Best: May-Sep</span>
+                            <span>💰 From $100/day</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Africa Destinations -->
+                <div class="destination-card" data-continent="africa">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=400&h=300&fit=crop"
+                            alt="Safari, Kenya">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇰🇪</span>
+                            <span>Kenya</span>
+                        </div>
+                        <h3>Masai Mara Safari</h3>
+                        <p>Witness the great migration and the Big Five</p>
+                        <div class="dest-meta">
+                            <span>🦁 Best: Jul-Oct</span>
+                            <span>💰 From $300/day</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-continent="africa">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1539768942893-daf53e448371?w=400&h=300&fit=crop"
+                            alt="Cape Town, South Africa">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇿🇦</span>
+                            <span>South Africa</span>
+                        </div>
+                        <h3>Cape Town</h3>
+                        <p>Table Mountain, stunning beaches, and wine country</p>
+                        <div class="dest-meta">
+                            <span>☀️ Best: Nov-Mar</span>
+                            <span>💰 From $120/day</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Oceania Destinations -->
+                <div class="destination-card" data-continent="oceania">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=300&fit=crop"
+                            alt="Sydney, Australia">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇦🇺</span>
+                            <span>Australia</span>
+                        </div>
+                        <h3>Sydney</h3>
+                        <p>Opera House, Harbour Bridge, and beautiful beaches</p>
+                        <div class="dest-meta">
+                            <span>☀️ Best: Sep-Nov</span>
+                            <span>💰 From $180/day</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-continent="oceania">
+                    <div class="dest-image">
+                        <img src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=400&h=300&fit=crop"
+                            alt="Queenstown, New Zealand">
+                        <div class="dest-overlay">
+                            <button class="dest-explore">Explore →</button>
+                        </div>
+                    </div>
+                    <div class="dest-info">
+                        <div class="dest-country">
+                            <span class="flag">🇳🇿</span>
+                            <span>New Zealand</span>
+                        </div>
+                        <h3>Queenstown</h3>
+                        <p>Adventure capital with stunning alpine scenery</p>
+                        <div class="dest-meta">
+                            <span>🏔️ Best: Dec-Feb</span>
+                            <span>💰 From $200/day</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant Section -->
+    <section class="section ai-section" id="ai-assistant">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🤖 AI Powered</span>
+                <h2 class="section-title">Your Personal Travel Guide</h2>
+                <p class="section-subtitle">Ask our AI assistant about any destination and get instant travel insights
+                </p>
+            </div>
+            <div class="ai-chat-container">
+                <div class="ai-chat-box">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="chat-message ai">
+                            <div class="message-avatar">🤖</div>
+                            <div class="message-content">
+                                <p>Hello! I'm your AI travel guide. Ask me about any destination, and I'll provide you
+                                    with:</p>
+                                <ul>
+                                    <li>🏛️ Famous tourist spots & landmarks</li>
+                                    <li>🍜 Local cuisine & food recommendations</li>
+                                    <li>🌤️ Best time to visit & weather info</li>
+                                    <li>🎭 Culture, traditions & travel tips</li>
+                                    <li>💡 Hidden gems & local secrets</li>
+                                </ul>
+                                <p>Where would you like to explore?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <div class="chat-suggestions">
+                            <button class="suggestion-chip" data-query="Tell me about Paris, France">🗼 Paris</button>
+                            <button class="suggestion-chip" data-query="What are the famous places in Tokyo, Japan?">🗾
+                                Tokyo</button>
+                            <button class="suggestion-chip" data-query="Best tourist spots in Bali, Indonesia">🌴
+                                Bali</button>
+                            <button class="suggestion-chip" data-query="Tell me about New York City">🗽 NYC</button>
+                        </div>
+                        <form class="chat-input-form" id="chatForm">
+                            <input type="text" class="chat-input" id="chatInput"
+                                placeholder="Ask about any destination..." autocomplete="off">
+                            <button type="submit" class="chat-send" id="chatSend">
+                                <span class="send-icon">➤</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="ai-features">
+                    <div class="ai-feature">
+                        <span class="feature-icon">⚡</span>
+                        <h4>Instant Answers</h4>
+                        <p>Get real-time information about any destination worldwide</p>
+                    </div>
+                    <div class="ai-feature">
+                        <span class="feature-icon">🎯</span>
+                        <h4>Personalized Tips</h4>
+                        <p>Receive tailored recommendations based on your interests</p>
+                    </div>
+                    <div class="ai-feature">
+                        <span class="feature-icon">🌐</span>
+                        <h4>Global Coverage</h4>
+                        <p>Information about destinations from every corner of the world</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Get Travel Inspiration</h2>
+                <p>Subscribe to our newsletter and receive exclusive deals, travel tips, and destination guides</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon">✈️</span>
+                        <span class="logo-text">Virushka<span class="logo-accent">.in</span></span>
+                    </a>
+                    <p>Your ultimate travel companion for exploring the world. Book hotels, transportation, and discover
+                        amazing destinations.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📸</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📺</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hotels">Hotels</a></li>
+                        <li><a href="#buses">Bus Tickets</a></li>
+                        <li><a href="#trains">Train Tickets</a></li>
+                        <li><a href="#transport">Local Transport</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><a href="tel:+919843114109">📞 +91 9843114109</a></li>
+                        <li><a href="mailto:ashwinlokesh750@gmail.com">✉️ ashwinlokesh750@gmail.com</a></li>
+                        <li><span>👤 Ashwin P</span></li>
+                    </ul>
+                    <h4 style="margin-top: 1rem;">Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tripzverse.in. All rights reserved. Made with ❤️ for travelers worldwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Razorpay SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="gemini.js"></script>
+    <script src="script.js"></script>
+    <script src="payment.js"></script>
+</body>
+
+</html>

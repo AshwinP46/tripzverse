@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripzverse.in - Project Documentation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #1e1b4b;
+            background: #f5f3ff;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 20px;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Outfit', sans-serif;
+            color: #7c3aed;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, #8b5cf6, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.3em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 2em;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            border-bottom: 3px solid #8b5cf6;
+            padding-bottom: 0.3em;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #4c1d95;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        .cover {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #c084fc 100%);
+            border-radius: 20px;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .cover h1 {
+            color: white;
+            -webkit-text-fill-color: white;
+            font-size: 3rem;
+        }
+
+        .cover .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .cover p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .toc {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .toc h2 {
+            border: none;
+            margin-top: 0;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .toc li:last-child {
+            border-bottom: none;
+        }
+
+        .toc a {
+            color: #4c1d95;
+            text-decoration: none;
+        }
+
+        .section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+        }
+
+        ul,
+        ol {
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        code {
+            background: #f3f4f6;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9em;
+            color: #7c3aed;
+        }
+
+        pre {
+            background: #1e1b4b;
+            color: #e5e7eb;
+            padding: 15px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 1em 0;
+        }
+
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 1em 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .feature-card h4 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+        }
+
+        .feature-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #f59e0b;
+            margin: 1em 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ef4444;
+            margin: 1em 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+            margin: 1em 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #8b5cf6, #c084fc);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="print-btn no-print" onclick="window.print()">📄 Save as PDF</button>
+
+    <!-- Cover Page -->
+    <div class="cover">
+        <div class="logo">✈️</div>
+        <h1>Tripzverse.in</h1>
+        <p>Travel Booking Platform - Documentation</p>
+        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">Version 1.0 | January 2025</p>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>📑 Table of Contents</h2>
+        <ul>
+            <li><a href="#overview">1. Project Overview</a></li>
+            <li><a href="#features">2. Features</a></li>
+            <li><a href="#structure">3. Project Structure</a></li>
+            <li><a href="#setup">4. Setup & Installation</a></li>
+            <li><a href="#files">5. File Descriptions</a></li>
+            <li><a href="#customization">6. Customization Guide</a></li>
+            <li><a href="#api">7. API Configuration</a></li>
+            <li><a href="#tech">8. Technologies Used</a></li>
+        </ul>
+    </div>
+
+    <!-- Section 1: Overview -->
+    <div class="section" id="overview">
+        <h2>1. Project Overview</h2>
+        <p>
+            <strong>Tripzverse.in</strong> is a modern, feature-rich travel booking platform that combines stunning
+            visual design with powerful functionality. Built with HTML, CSS, and JavaScript,
+            this platform offers a seamless user experience for booking hotels, buses, trains, and local transportation.
+        </p>
+
+        <h3>Key Highlights</h3>
+        <ul>
+            <li><strong>AI Travel Guide:</strong> Integrated assistant for destination information</li>
+            <li><strong>Modern Design:</strong> Purple-violet glassmorphism aesthetic</li>
+            <li><strong>Responsive:</strong> Works flawlessly on all devices</li>
+            <li><strong>Theme Support:</strong> Light and dark mode with persistence</li>
+            <li><strong>Lightweight:</strong> Pure vanilla JavaScript, no heavy frameworks</li>
+        </ul>
+    </div>
+
+    <!-- Section 2: Features -->
+    <div class="section page-break" id="features">
+        <h2>2. Features</h2>
+
+        <h3>🏨 Multi-Service Booking</h3>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>🏨 Hotels</h4>
+                <p>Browse luxury, boutique, resort & budget accommodations</p>
+            </div>
+            <div class="feature-card">
+                <h4>🚌 Buses</h4>
+                <p>Search and book bus tickets across major global routes</p>
+            </div>
+            <div class="feature-card">
+                <h4>🚂 Trains</h4>
+                <p>Reserve tickets on iconic routes like Shinkansen & Eurostar</p>
+            </div>
+            <div class="feature-card">
+                <h4>🚕 Local Transport</h4>
+                <p>Book cabs, autos, bikes & self-drive rentals</p>
+            </div>
+        </div>
+
+        <h3>🤖 AI Travel Guide</h3>
+        <p>The integrated AI assistant provides:</p>
+        <ul>
+            <li>🏛️ Famous tourist spots & landmarks</li>
+            <li>🍜 Local cuisine recommendations</li>
+            <li>🌤️ Best time to visit information</li>
+            <li>🎭 Culture & traditions insights</li>
+            <li>💰 Budget information & tips</li>
+            <li>💡 Practical travel advice</li>
+        </ul>
+
+        <h3>🎨 Design Features</h3>
+        <ul>
+            <li>Glassmorphism UI with backdrop blur effects</li>
+            <li>Smooth animations and micro-interactions</li>
+            <li>Responsive layout for all screen sizes</li>
+            <li>Light/Dark mode toggle with localStorage persistence</li>
+        </ul>
+    </div>
+
+    <!-- Section 3: Project Structure -->
+    <div class="section" id="structure">
+        <h2>3. Project Structure</h2>
+
+        <pre><code>tripzverse-travel/
+├── index.html          # Main HTML file
+├── styles.css          # Complete CSS styling
+├── script.js           # Core JavaScript
+├── gemini.js           # AI assistant integration
+├── README.md           # Documentation
+├── LICENSE             # MIT License
+└── .gitignore          # Git ignore file</code></pre>
+
+        <table>
+            <tr>
+                <th>File</th>
+                <th>Size</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td><code>index.html</code></td>
+                <td>~64 KB</td>
+                <td>Main structure with all sections</td>
+            </tr>
+            <tr>
+                <td><code>styles.css</code></td>
+                <td>~43 KB</td>
+                <td>Design system & themes</td>
+            </tr>
+            <tr>
+                <td><code>script.js</code></td>
+                <td>~13 KB</td>
+                <td>Core functionality</td>
+            </tr>
+            <tr>
+                <td><code>gemini.js</code></td>
+                <td>~7 KB</td>
+                <td>AI chat integration</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Section 4: Setup -->
+    <div class="section page-break" id="setup">
+        <h2>4. Setup & Installation</h2>
+
+        <h3>Prerequisites</h3>
+        <ul>
+            <li>A modern web browser (Chrome, Firefox, Safari, Edge)</li>
+            <li>A Gemini API key (for AI features)</li>
+        </ul>
+
+        <h3>Installation Steps</h3>
+        <ol>
+            <li>
+                <strong>Download/Clone the Repository</strong>
+                <pre><code>git clone https://github.com/yourusername/tripzverse-travel.git</code></pre>
+            </li>
+            <li>
+                <strong>Open the Project</strong>
+                <p>Simply open <code>index.html</code> in your web browser, or use a local server:</p>
+                <pre><code># Using Python
+python -m http.server 8000
+
+# Using Node.js
+npx http-server</code></pre>
+            </li>
+            <li>
+                <strong>Configure API Key (Optional)</strong>
+                <p>Open <code>gemini.js</code> and replace the API key with your own.</p>
+            </li>
+        </ol>
+
+        <div class="info-box">
+            <strong>💡 Tip:</strong> For the best experience, use a local server rather than opening the HTML file
+            directly.
+        </div>
+    </div>
+
+    <!-- Section 5: File Descriptions -->
+    <div class="section" id="files">
+        <h2>5. File Descriptions</h2>
+
+        <h3>index.html</h3>
+        <p>The main HTML structure containing all page sections:</p>
+        <ul>
+            <li>Navigation bar with responsive hamburger menu</li>
+            <li>Hero section with animated search tabs</li>
+            <li>Hotels section with filterable cards</li>
+            <li>Buses section with route listings</li>
+            <li>Trains section with scenic routes</li>
+            <li>Local transport with fare calculator</li>
+            <li>World destinations gallery</li>
+            <li>AI Assistant chat interface</li>
+            <li>Footer with newsletter signup</li>
+        </ul>
+
+        <h3>styles.css</h3>
+        <p>Complete design system including:</p>
+        <ul>
+            <li>CSS custom properties (variables) for theming</li>
+            <li>Light and dark mode definitions</li>
+            <li>Glassmorphism effects with backdrop blur</li>
+            <li>Responsive layouts and media queries</li>
+            <li>Animation keyframes</li>
+        </ul>
+
+        <h3>script.js</h3>
+        <p>Core functionality modules:</p>
+        <ul>
+            <li><code>initTheme()</code> - Theme toggle with localStorage</li>
+            <li><code>initNavigation()</code> - Scroll effects & mobile menu</li>
+            <li><code>initSearchTabs()</code> - Tab switching logic</li>
+            <li><code>initCounterAnimation()</code> - Stats counter animation</li>
+            <li><code>initScrollAnimations()</code> - Scroll-triggered effects</li>
+            <li><code>initHotelFilters()</code> - Hotel category filtering</li>
+            <li><code>initFareCalculator()</code> - Transport fare estimation</li>
+        </ul>
+
+        <h3>gemini.js</h3>
+        <p>AI assistant integration:</p>
+        <ul>
+            <li>API connection & configuration</li>
+            <li>Chat UI management & message rendering</li>
+            <li>Markdown formatting support</li>
+            <li>Typing indicators & animations</li>
+        </ul>
+    </div>
+
+    <!-- Section 6: Customization -->
+    <div class="section page-break" id="customization">
+        <h2>6. Customization Guide</h2>
+
+        <h3>Changing Theme Colors</h3>
+        <p>Edit the CSS variables in <code>styles.css</code>:</p>
+        <pre><code>:root {
+    --primary: #8b5cf6;        /* Main purple */
+    --primary-light: #a78bfa;  /* Light purple */
+    --primary-dark: #7c3aed;   /* Dark purple */
+    --secondary: #c084fc;      /* Secondary violet */
+    --accent: #a855f7;         /* Accent color */
+}</code></pre>
+
+        <h3>Adding New Destinations</h3>
+        <p>Add new destination cards in <code>index.html</code>:</p>
+        <pre><code>&lt;div class="destination-card" data-continent="asia"&gt;
+    &lt;div class="dest-image"&gt;
+        &lt;img src="image-url" alt="City Name"&gt;
+        &lt;div class="dest-overlay"&gt;
+            &lt;span class="dest-country"&gt;Country&lt;/span&gt;
+            &lt;h3&gt;City Name&lt;/h3&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3>Adding New Hotels</h3>
+        <p>Copy an existing hotel card and modify the content. Available categories:</p>
+        <ul>
+            <li><code>luxury</code> - Luxury hotels</li>
+            <li><code>boutique</code> - Boutique hotels</li>
+            <li><code>resort</code> - Resort properties</li>
+            <li><code>budget</code> - Budget-friendly options</li>
+        </ul>
+    </div>
+
+    <!-- Section 7: API -->
+    <div class="section" id="api">
+        <h2>7. API Configuration</h2>
+
+        <h3>Getting an API Key</h3>
+        <ol>
+            <li>Visit <a href="https://aistudio.google.com/">Google AI Studio</a></li>
+            <li>Sign in with your Google account</li>
+            <li>Navigate to "Get API Key"</li>
+            <li>Create a new API key</li>
+        </ol>
+
+        <h3>Configuring the API</h3>
+        <p>Open <code>gemini.js</code> and update line 6:</p>
+        <pre><code>const GEMINI_API_KEY = 'your-api-key-here';</code></pre>
+
+        <div class="warning-box">
+            <strong>⚠️ Security Note:</strong> Never commit your API key to public repositories.
+            Consider using environment variables or a backend proxy for production deployments.
+        </div>
+
+        <h3>Customizing Responses</h3>
+        <p>The system prompt in <code>gemini.js</code> defines how the assistant responds. You can modify it to:</p>
+        <ul>
+            <li>Change the response format</li>
+            <li>Add or remove information categories</li>
+            <li>Adjust the response length</li>
+            <li>Modify the assistant's tone</li>
+        </ul>
+    </div>
+
+    <!-- Section 8: Technologies -->
+    <div class="section" id="tech">
+        <h2>8. Technologies Used</h2>
+
+        <table>
+            <tr>
+                <th>Technology</th>
+                <th>Usage</th>
+            </tr>
+            <tr>
+                <td>HTML5</td>
+                <td>Semantic markup structure</td>
+            </tr>
+            <tr>
+                <td>CSS3</td>
+                <td>Custom properties, Flexbox, Grid, Animations</td>
+            </tr>
+            <tr>
+                <td>JavaScript (ES6+)</td>
+                <td>Async/await, Fetch API, IntersectionObserver</td>
+            </tr>
+            <tr>
+                <td>Google Fonts</td>
+                <td>Inter, Outfit, Playfair Display</td>
+            </tr>
+            <tr>
+                <td>Gemini API</td>
+                <td>For the AI travel assistant feature</td>
+            </tr>
+        </table>
+
+        <h3>Browser Support</h3>
+        <ul>
+            <li>✅ Chrome (latest)</li>
+            <li>✅ Firefox (latest)</li>
+            <li>✅ Safari (latest)</li>
+            <li>✅ Edge (latest)</li>
+            <li>❌ Internet Explorer (not supported)</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>📄 Tripzverse.in - Project Documentation</p>
+        <p>Version 1.0 | MIT License | January 2025</p>
+        <p style="margin-top: 10px;">Made with ❤️ by Tripzverse Team</p>
+    </div>
+
+</body>
+
+</html>
